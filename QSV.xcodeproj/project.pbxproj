@@ -1,0 +1,571 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3BB8C32E187CB61C00A0904F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB8C32D187CB61C00A0904F /* Foundation.framework */; };
+		3BB8C330187CB61C00A0904F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB8C32F187CB61C00A0904F /* CoreGraphics.framework */; };
+		3BB8C332187CB61C00A0904F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB8C331187CB61C00A0904F /* UIKit.framework */; };
+		3BB8C338187CB61C00A0904F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BB8C336187CB61C00A0904F /* InfoPlist.strings */; };
+		3BB8C33A187CB61C00A0904F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8C339187CB61C00A0904F /* main.m */; };
+		3BB8C33E187CB61C00A0904F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8C33D187CB61C00A0904F /* AppDelegate.m */; };
+		3BB8C341187CB61C00A0904F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BB8C33F187CB61C00A0904F /* Main.storyboard */; };
+		3BB8C344187CB61C00A0904F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8C343187CB61C00A0904F /* ViewController.m */; };
+		3BB8C346187CB61C00A0904F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BB8C345187CB61C00A0904F /* Images.xcassets */; };
+		3BB8C34D187CB61C00A0904F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB8C34C187CB61C00A0904F /* XCTest.framework */; };
+		3BB8C34E187CB61C00A0904F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB8C32D187CB61C00A0904F /* Foundation.framework */; };
+		3BB8C34F187CB61C00A0904F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB8C331187CB61C00A0904F /* UIKit.framework */; };
+		3BB8C357187CB61C00A0904F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BB8C355187CB61C00A0904F /* InfoPlist.strings */; };
+		3BB8C359187CB61C00A0904F /* QSVTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8C358187CB61C00A0904F /* QSVTests.m */; };
+		3BDA4E4B187DC3BC00E0BF9F /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA4E41187DC3BC00E0BF9F /* Base64Transcoder.c */; };
+		3BDA4E4C187DC3BC00E0BF9F /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA4E43187DC3BC00E0BF9F /* hmac.c */; };
+		3BDA4E4D187DC3BC00E0BF9F /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA4E45187DC3BC00E0BF9F /* sha1.c */; };
+		3BDA4E4E187DC3BC00E0BF9F /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA4E48187DC3BC00E0BF9F /* NSString+URLEncoding.m */; };
+		3BDA4E4F187DC3BC00E0BF9F /* OAuth1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA4E4A187DC3BC00E0BF9F /* OAuth1Controller.m */; };
+		3BDA4E52187DC67700E0BF9F /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA4E51187DC67700E0BF9F /* LoginWebViewController.m */; };
+		3BE00E2A18860C0A00586998 /* diagonals.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BE00E1818860C0A00586998 /* diagonals.png */; };
+		3BE00E2B18860C0A00586998 /* diagonals@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BE00E1918860C0A00586998 /* diagonals@2x.png */; };
+		3BE00E2D18860C0A00586998 /* libNike.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE00E1C18860C0A00586998 /* libNike.1.1.a */; };
+		3BE00E2F18860C0A00586998 /* nike.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3BE00E2018860C0A00586998 /* nike.sqlite */; };
+		3BE00E3018860C0A00586998 /* NikeConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE00E2218860C0A00586998 /* NikeConnect.m */; };
+		3BED55921886005600F938A3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BED55911886005600F938A3 /* libsqlite3.0.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3BB8C350187CB61C00A0904F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BB8C322187CB61C00A0904F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BB8C329187CB61C00A0904F;
+			remoteInfo = QSV;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3BB8C32A187CB61C00A0904F /* QSV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BB8C32D187CB61C00A0904F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3BB8C32F187CB61C00A0904F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3BB8C331187CB61C00A0904F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3BB8C335187CB61C00A0904F /* QSV-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QSV-Info.plist"; sourceTree = "<group>"; };
+		3BB8C337187CB61C00A0904F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3BB8C339187CB61C00A0904F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3BB8C33B187CB61C00A0904F /* QSV-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QSV-Prefix.pch"; sourceTree = "<group>"; };
+		3BB8C33C187CB61C00A0904F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3BB8C33D187CB61C00A0904F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3BB8C340187CB61C00A0904F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3BB8C342187CB61C00A0904F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3BB8C343187CB61C00A0904F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3BB8C345187CB61C00A0904F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3BB8C34B187CB61C00A0904F /* QSVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QSVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BB8C34C187CB61C00A0904F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3BB8C354187CB61C00A0904F /* QSVTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QSVTests-Info.plist"; sourceTree = "<group>"; };
+		3BB8C356187CB61C00A0904F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3BB8C358187CB61C00A0904F /* QSVTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSVTests.m; sourceTree = "<group>"; };
+		3BDA4E41187DC3BC00E0BF9F /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
+		3BDA4E42187DC3BC00E0BF9F /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		3BDA4E43187DC3BC00E0BF9F /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
+		3BDA4E44187DC3BC00E0BF9F /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		3BDA4E45187DC3BC00E0BF9F /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
+		3BDA4E46187DC3BC00E0BF9F /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
+		3BDA4E47187DC3BC00E0BF9F /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		3BDA4E48187DC3BC00E0BF9F /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		3BDA4E49187DC3BC00E0BF9F /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth1Controller.h; sourceTree = "<group>"; };
+		3BDA4E4A187DC3BC00E0BF9F /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth1Controller.m; sourceTree = "<group>"; };
+		3BDA4E50187DC67700E0BF9F /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewController.h; sourceTree = "<group>"; };
+		3BDA4E51187DC67700E0BF9F /* LoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewController.m; sourceTree = "<group>"; };
+		3BE00E1818860C0A00586998 /* diagonals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diagonals.png; sourceTree = "<group>"; };
+		3BE00E1918860C0A00586998 /* diagonals@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diagonals@2x.png"; sourceTree = "<group>"; };
+		3BE00E1C18860C0A00586998 /* libNike.1.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNike.1.1.a; sourceTree = "<group>"; };
+		3BE00E1F18860C0A00586998 /* Nike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nike.h; sourceTree = "<group>"; };
+		3BE00E2018860C0A00586998 /* nike.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = nike.sqlite; sourceTree = "<group>"; };
+		3BE00E2118860C0A00586998 /* NikeConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NikeConnect.h; sourceTree = "<group>"; };
+		3BE00E2218860C0A00586998 /* NikeConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NikeConnect.m; sourceTree = "<group>"; };
+		3BE00E2318860C0A00586998 /* NIKECredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIKECredential.h; sourceTree = "<group>"; };
+		3BED55911886005600F938A3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3BB8C327187CB61C00A0904F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BE00E2D18860C0A00586998 /* libNike.1.1.a in Frameworks */,
+				3BED55921886005600F938A3 /* libsqlite3.0.dylib in Frameworks */,
+				3BB8C330187CB61C00A0904F /* CoreGraphics.framework in Frameworks */,
+				3BB8C332187CB61C00A0904F /* UIKit.framework in Frameworks */,
+				3BB8C32E187CB61C00A0904F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BB8C348187CB61C00A0904F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BB8C34D187CB61C00A0904F /* XCTest.framework in Frameworks */,
+				3BB8C34F187CB61C00A0904F /* UIKit.framework in Frameworks */,
+				3BB8C34E187CB61C00A0904F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3BB8C321187CB61C00A0904F = {
+			isa = PBXGroup;
+			children = (
+				3BB8C333187CB61C00A0904F /* QSV */,
+				3BB8C352187CB61C00A0904F /* QSVTests */,
+				3BB8C32C187CB61C00A0904F /* Frameworks */,
+				3BB8C32B187CB61C00A0904F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3BB8C32B187CB61C00A0904F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BB8C32A187CB61C00A0904F /* QSV.app */,
+				3BB8C34B187CB61C00A0904F /* QSVTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3BB8C32C187CB61C00A0904F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BED55911886005600F938A3 /* libsqlite3.0.dylib */,
+				3BB8C32D187CB61C00A0904F /* Foundation.framework */,
+				3BB8C32F187CB61C00A0904F /* CoreGraphics.framework */,
+				3BB8C331187CB61C00A0904F /* UIKit.framework */,
+				3BB8C34C187CB61C00A0904F /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3BB8C333187CB61C00A0904F /* QSV */ = {
+			isa = PBXGroup;
+			children = (
+				3BDA4E47187DC3BC00E0BF9F /* NSString+URLEncoding.h */,
+				3BDA4E48187DC3BC00E0BF9F /* NSString+URLEncoding.m */,
+				3BDA4E49187DC3BC00E0BF9F /* OAuth1Controller.h */,
+				3BDA4E4A187DC3BC00E0BF9F /* OAuth1Controller.m */,
+				3BB8C33C187CB61C00A0904F /* AppDelegate.h */,
+				3BB8C33D187CB61C00A0904F /* AppDelegate.m */,
+				3BB8C342187CB61C00A0904F /* ViewController.h */,
+				3BB8C343187CB61C00A0904F /* ViewController.m */,
+				3BDA4E50187DC67700E0BF9F /* LoginWebViewController.h */,
+				3BDA4E51187DC67700E0BF9F /* LoginWebViewController.m */,
+				3BB8C33F187CB61C00A0904F /* Main.storyboard */,
+				3BB8C345187CB61C00A0904F /* Images.xcassets */,
+				3BE00E1318860C0A00586998 /* NikeConnect */,
+				3BDA4E40187DC3BC00E0BF9F /* Crypto */,
+				3BB8C334187CB61C00A0904F /* Supporting Files */,
+			);
+			path = QSV;
+			sourceTree = "<group>";
+		};
+		3BB8C334187CB61C00A0904F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3BB8C335187CB61C00A0904F /* QSV-Info.plist */,
+				3BB8C336187CB61C00A0904F /* InfoPlist.strings */,
+				3BB8C339187CB61C00A0904F /* main.m */,
+				3BB8C33B187CB61C00A0904F /* QSV-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3BB8C352187CB61C00A0904F /* QSVTests */ = {
+			isa = PBXGroup;
+			children = (
+				3BB8C358187CB61C00A0904F /* QSVTests.m */,
+				3BB8C353187CB61C00A0904F /* Supporting Files */,
+			);
+			path = QSVTests;
+			sourceTree = "<group>";
+		};
+		3BB8C353187CB61C00A0904F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3BB8C354187CB61C00A0904F /* QSVTests-Info.plist */,
+				3BB8C355187CB61C00A0904F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3BDA4E40187DC3BC00E0BF9F /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				3BDA4E41187DC3BC00E0BF9F /* Base64Transcoder.c */,
+				3BDA4E42187DC3BC00E0BF9F /* Base64Transcoder.h */,
+				3BDA4E43187DC3BC00E0BF9F /* hmac.c */,
+				3BDA4E44187DC3BC00E0BF9F /* hmac.h */,
+				3BDA4E45187DC3BC00E0BF9F /* sha1.c */,
+				3BDA4E46187DC3BC00E0BF9F /* sha1.h */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
+		3BE00E1318860C0A00586998 /* NikeConnect */ = {
+			isa = PBXGroup;
+			children = (
+				3BE00E1818860C0A00586998 /* diagonals.png */,
+				3BE00E1918860C0A00586998 /* diagonals@2x.png */,
+				3BE00E1C18860C0A00586998 /* libNike.1.1.a */,
+				3BE00E1F18860C0A00586998 /* Nike.h */,
+				3BE00E2018860C0A00586998 /* nike.sqlite */,
+				3BE00E2118860C0A00586998 /* NikeConnect.h */,
+				3BE00E2218860C0A00586998 /* NikeConnect.m */,
+				3BE00E2318860C0A00586998 /* NIKECredential.h */,
+			);
+			path = NikeConnect;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3BB8C329187CB61C00A0904F /* QSV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BB8C35C187CB61C00A0904F /* Build configuration list for PBXNativeTarget "QSV" */;
+			buildPhases = (
+				3BB8C326187CB61C00A0904F /* Sources */,
+				3BB8C327187CB61C00A0904F /* Frameworks */,
+				3BB8C328187CB61C00A0904F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QSV;
+			productName = QSV;
+			productReference = 3BB8C32A187CB61C00A0904F /* QSV.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3BB8C34A187CB61C00A0904F /* QSVTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BB8C35F187CB61C00A0904F /* Build configuration list for PBXNativeTarget "QSVTests" */;
+			buildPhases = (
+				3BB8C347187CB61C00A0904F /* Sources */,
+				3BB8C348187CB61C00A0904F /* Frameworks */,
+				3BB8C349187CB61C00A0904F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BB8C351187CB61C00A0904F /* PBXTargetDependency */,
+			);
+			name = QSVTests;
+			productName = QSVTests;
+			productReference = 3BB8C34B187CB61C00A0904F /* QSVTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3BB8C322187CB61C00A0904F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Chroma;
+				TargetAttributes = {
+					3BB8C34A187CB61C00A0904F = {
+						TestTargetID = 3BB8C329187CB61C00A0904F;
+					};
+				};
+			};
+			buildConfigurationList = 3BB8C325187CB61C00A0904F /* Build configuration list for PBXProject "QSV" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3BB8C321187CB61C00A0904F;
+			productRefGroup = 3BB8C32B187CB61C00A0904F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3BB8C329187CB61C00A0904F /* QSV */,
+				3BB8C34A187CB61C00A0904F /* QSVTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3BB8C328187CB61C00A0904F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BB8C346187CB61C00A0904F /* Images.xcassets in Resources */,
+				3BE00E2A18860C0A00586998 /* diagonals.png in Resources */,
+				3BE00E2B18860C0A00586998 /* diagonals@2x.png in Resources */,
+				3BE00E2F18860C0A00586998 /* nike.sqlite in Resources */,
+				3BB8C338187CB61C00A0904F /* InfoPlist.strings in Resources */,
+				3BB8C341187CB61C00A0904F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BB8C349187CB61C00A0904F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BB8C357187CB61C00A0904F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3BB8C326187CB61C00A0904F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BDA4E4D187DC3BC00E0BF9F /* sha1.c in Sources */,
+				3BDA4E4C187DC3BC00E0BF9F /* hmac.c in Sources */,
+				3BB8C344187CB61C00A0904F /* ViewController.m in Sources */,
+				3BDA4E4F187DC3BC00E0BF9F /* OAuth1Controller.m in Sources */,
+				3BDA4E4B187DC3BC00E0BF9F /* Base64Transcoder.c in Sources */,
+				3BB8C33E187CB61C00A0904F /* AppDelegate.m in Sources */,
+				3BDA4E4E187DC3BC00E0BF9F /* NSString+URLEncoding.m in Sources */,
+				3BDA4E52187DC67700E0BF9F /* LoginWebViewController.m in Sources */,
+				3BE00E3018860C0A00586998 /* NikeConnect.m in Sources */,
+				3BB8C33A187CB61C00A0904F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BB8C347187CB61C00A0904F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BB8C359187CB61C00A0904F /* QSVTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BB8C351187CB61C00A0904F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BB8C329187CB61C00A0904F /* QSV */;
+			targetProxy = 3BB8C350187CB61C00A0904F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3BB8C336187CB61C00A0904F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BB8C337187CB61C00A0904F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3BB8C33F187CB61C00A0904F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BB8C340187CB61C00A0904F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3BB8C355187CB61C00A0904F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BB8C356187CB61C00A0904F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3BB8C35A187CB61C00A0904F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3BB8C35B187CB61C00A0904F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3BB8C35D187CB61C00A0904F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QSV/QSV-Prefix.pch";
+				INFOPLIST_FILE = "QSV/QSV-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/erickuehne/apps/chroma/QSV/QSV,
+					/Users/erickuehne/apps/chroma/QSV,
+					/Users/erickuehne/apps/chroma/QSV/QSV/NikeConnect,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3BB8C35E187CB61C00A0904F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QSV/QSV-Prefix.pch";
+				INFOPLIST_FILE = "QSV/QSV-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/erickuehne/apps/chroma/QSV/QSV,
+					/Users/erickuehne/apps/chroma/QSV,
+					/Users/erickuehne/apps/chroma/QSV/QSV/NikeConnect,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3BB8C360187CB61C00A0904F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QSV.app/QSV";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QSV/QSV-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "QSVTests/QSVTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		3BB8C361187CB61C00A0904F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QSV.app/QSV";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QSV/QSV-Prefix.pch";
+				INFOPLIST_FILE = "QSVTests/QSVTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3BB8C325187CB61C00A0904F /* Build configuration list for PBXProject "QSV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BB8C35A187CB61C00A0904F /* Debug */,
+				3BB8C35B187CB61C00A0904F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BB8C35C187CB61C00A0904F /* Build configuration list for PBXNativeTarget "QSV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BB8C35D187CB61C00A0904F /* Debug */,
+				3BB8C35E187CB61C00A0904F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BB8C35F187CB61C00A0904F /* Build configuration list for PBXNativeTarget "QSVTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BB8C360187CB61C00A0904F /* Debug */,
+				3BB8C361187CB61C00A0904F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3BB8C322187CB61C00A0904F /* Project object */;
+}
