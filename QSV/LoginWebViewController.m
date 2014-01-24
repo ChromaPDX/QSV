@@ -1,7 +1,10 @@
 //
 //  LoginWebViewController.m
 //  QSV
-
+//
+//  Created by Eric Kuehne on 1/7/14.
+//  Copyright (c) 2014 Chroma. All rights reserved.
+//
 
 #import "LoginWebViewController.h"
 
@@ -22,6 +25,7 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"LoginWebViewController loading...");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }

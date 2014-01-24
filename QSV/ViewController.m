@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <MessageUI/MessageUI.h>
+#import <RestKit/RestKit.h>
 
 @implementation ViewController
 
@@ -48,54 +49,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)loginFitbit
-{
-    LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
-    
-    if(_oauthTokenFitBit == nil){   // If not logged in, then do it
-    
-        [self presentViewController:loginWebViewController
-                           animated:YES
-                         completion:^{
-                             [self.oauth1Controller loginWithWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error) {
-                                 if (!error) {
-                                     // Store your tokens for authenticating your later requests, consider storing the tokens in the Keychain
-                                     _oauthTokenFitBit = oauthTokens[@"oauth_token"];
-                                     _oauthTokenSecretFitBit = oauthTokens[@"oauth_token_secret"];
-                                     
-                                     // set button to "connect"
-                                     [_fitbitButton setTitle:@"connected" forState:UIControlStateNormal];
-                                     [_fitbitButton setBackgroundColor:[UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0]];
-                                 }
-                                 else
-                                 {
-                                     NSLog(@"Error authenticating: %@", error.localizedDescription);
-                                 }
-                                 [self dismissViewControllerAnimated:YES completion: ^{
-                                     _oauth1Controller = nil;
-                                 }];
-                             }];
-                         }];
-
-    }
-    else{  //  allready logged in, so log out
-        // Clear cookies so no session cookies can be used for the UIWebview
-        NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-        for (NSHTTPCookie *cookie in [storage cookies]) {
-            if (cookie.isSecure) {
-                [storage deleteCookie:cookie];
-            }
-        }
-        
-        // Clear tokens from instance variables
-        _oauthTokenFitBit = nil;
-        _oauthTokenSecretFitBit = nil;
-        
-        // set button to "connect"
-        [_fitbitButton setTitle:@"connect" forState:UIControlStateNormal];
-    }
-    [self updateButtons];
-}
 
 -(void) connectionSuccessful{
     NSLog(@"DELEGATE:nikeconnect:connectionSuccessful");
@@ -107,6 +60,7 @@
 
 -(void) updateButtons
 {
+    NSLog(@"in updateButtons...");
     if([_nikeConnect isConnected]){
         [_nikeButton setTitle:@"connected"forState:UIControlStateNormal];
         [_nikeButton setBackgroundColor:[UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0]];
@@ -137,6 +91,137 @@
 
 }
 
+- (IBAction)loginFitbit
+{
+    LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
+    
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"375d7f484cf34330b93c084dfd378f38", @"CONSUMER_KEY",
+                            @"7b13e6a08cf6443884fe0ef38f214ca5",@"CONSUMER_SECRET",
+                            @"http://api.fitbit.com/",@"API_URL",
+                            @"https://api.fitbit.com/",@"AUTH_URL",
+                            @"https://www.fitbit.com/", @"REDIRECT_URL",
+                            @"oauth/request_token",@"REQUEST_TOKEN_URL",
+                            @"oauth/authorize",@"AUTHENTICATE_URL",
+                            @"oauth/access_token",@"ACCESS_TOKEN_URL",
+                            @"",@"OAUTH_SCOPE_PARAM",
+                            @"POST",@"ACCESS_TOKEN_METHOD",
+                            @"POST",@"REQUEST_TOKEN_METHOD",
+                            @"http://www.chroma.io",@"OAUTH_CALLBACK",
+                            nil];
+
+    if(_oauthTokenFitBit == nil){   // If not logged in, then do it
+        _OAuthControllerFitbit = [[OAuthController alloc] init];
+       // NSLog(@"_OAuthController = %@", _OAuthController);
+       // NSLog(@"_params[AUTH_URL] = %@", params[@"AUTH_URL"]);
+        [OAuthController setOAuthParams:params];
+
+        [self presentViewController:loginWebViewController
+                           animated:YES
+                         completion:^{
+                             [_OAuthControllerFitbit loginWithWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error) {
+                                 if (!error) {
+                                     NSLog(@"Connected to FitBit!");
+                                  
+                                     _oauthTokenFitBit = oauthTokens[@"oauth_token"];
+                                     _oauthTokenSecretFitBit = oauthTokens[@"oauth_token_secret"];
+                                     [self updateButtons];
+                                 }
+                                 else
+                                 {
+                                     NSLog(@"Error authenticating: %@", error.localizedDescription);
+                                 }
+                                 [self dismissViewControllerAnimated:YES completion: ^{
+                                     _OAuthControllerFitbit = nil;
+                                 }];
+                             }];
+                         }];
+        
+    }
+    else{  //  allready logged in, so log out
+        // Clear cookies so no session cookies can be used for the UIWebview
+        NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        for (NSHTTPCookie *cookie in [storage cookies]) {
+            if (cookie.isSecure) {
+                [storage deleteCookie:cookie];
+            }
+        }
+        
+        // Clear tokens from instance variables
+        _oauthTokenFitBit = nil;
+        _oauthTokenSecretFitBit = nil;
+        
+        // set button to "connect"
+        [_fitbitButton setTitle:@"connect" forState:UIControlStateNormal];
+    }
+}
+
+
+// URL: https://www.goodreads.com/oauth/authorize?oauth_token=ZXugPyZVA3t0sbVZjuo8LA&oauth_callback=http%3A%2F%2Fwww.goodreads.com
+// URL: https://www.goodreads.com/oauth/authorize?oauth_token=tCsixclbgBXZbiCe2Wyotw&oauth_callback=http%3A%2F%2Fwww.chroma.io&display=touch
+
+- (IBAction)loginGoodreads
+{
+    LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
+    
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            @"tHgXtxxBGG3tlTUrRyHnTg", @"CONSUMER_KEY",
+                            @"iP9VZSSOwMobu8BTXhuYoHX9NkFBvZkV6duiGsaQ",@"CONSUMER_SECRET",
+                            @"http://www.goodreads.com/",@"API_URL",
+                            @"https://www.goodreads.com/oauth/",@"AUTH_URL",
+                            @"https://www.goodreads.com/", @"REDIRECT_URL",
+                            @"request_token",@"REQUEST_TOKEN_URL",
+                            @"authorize",@"AUTHENTICATE_URL",
+                            @"access_token",@"ACCESS_TOKEN_URL",
+                            @"",@"OAUTH_SCOPE_PARAM",
+                            @"POST",@"ACCESS_TOKEN_METHOD",
+                            @"POST",@"REQUEST_TOKEN_METHOD",
+                            @"http://www.goodreads.com",@"OAUTH_CALLBACK",
+                            nil];
+    
+    if(_oauthTokenGoodreads == nil){   // If not logged in, then do it
+        _OAuthControllerGoodreads = [[OAuthController alloc] init];
+        // NSLog(@"_OAuthController = %@", _OAuthController);
+        // NSLog(@"_params[AUTH_URL] = %@", params[@"AUTH_URL"]);
+        [OAuthController setOAuthParams:params];
+        
+        [self presentViewController:loginWebViewController
+                           animated:YES
+                         completion:^{
+                             [_OAuthControllerGoodreads loginWithWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error) {
+                                 if (!error) {
+                                     NSLog(@"Connected to Goodreads!");
+                                     
+                                     _oauthTokenGoodreads = oauthTokens[@"oauth_token"];
+                                     _oauthTokenSecretGoodreads = oauthTokens[@"oauth_token_secret"];
+                                     [self updateButtons];
+                                 }
+                                 else
+                                 {
+                                     NSLog(@"Error authenticating Goodreads: %@", error.localizedDescription);
+                                 }
+                                 [self dismissViewControllerAnimated:YES completion: ^{
+                                     _OAuthControllerGoodreads = nil;
+                                 }];
+                             }];
+                         }];
+        
+    }
+    else{  //  allready logged in, so log out
+        // Clear cookies so no session cookies can be used for the UIWebview
+        NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        for (NSHTTPCookie *cookie in [storage cookies]) {
+            if (cookie.isSecure) {
+                [storage deleteCookie:cookie];
+            }
+        }
+        
+        // Clear tokens from instance variables
+        _oauthTokenFitBit = nil;
+        _oauthTokenSecretFitBit = nil;
+    }
+
+}
 
 - (IBAction)loginNike
 {
@@ -156,6 +241,11 @@
     }
     [self updateButtons];
 }
+
+// Withings API: 82beb676e575bb70b43391fecc9cc63d386fb1bbccb81c214fbf2d01e2d7
+// WIthings Secret API: c02843e53063ed453e58f901e65581f6670fb706038e1d8e2639f34c9c6
+
+// RescueTime API:  B63BL6f3rs8vu6u8NWp5taDZzbNBgjNgvhHwXxfN
 
 -(void) refreshNike
 {
@@ -207,7 +297,7 @@
 //    NSString *path = @"1/user/-/profile.json";
     
         NSLog(@"refreshFitBit: fetching %@", path);
-        NSURLRequest *preparedRequest = [OAuth1Controller
+        NSURLRequest *preparedRequest = [OAuthController
                                      preparedRequestForPath:path parameters:nil
                                      HTTPmethod:@"GET"
                                      oauthToken:self.oauthTokenFitBit
@@ -437,12 +527,15 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (OAuth1Controller *)oauth1Controller
+/*
+ - (OAuthController *)OAuthController
 {
-    if (_oauth1Controller == nil) {
-        _oauth1Controller = [[OAuth1Controller alloc] init];
+    if (_OAuthController == nil) {
+        _OAuthController = [[OAuthController alloc] init];
     }
-    return _oauth1Controller;
+    return _OAuthController;
 }
+ */
+
 
 @end

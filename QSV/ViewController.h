@@ -7,15 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OAuth1Controller.h"
+#import "OAuthController.h"
 #import "LoginWebViewController.h"
 #import "NikeConnect.h"
 
 @interface ViewController : UIViewController <NikeConnectDelegate>
 
-@property (nonatomic, strong) OAuth1Controller *oauth1Controller;
+@property (nonatomic, strong) OAuthController *OAuthControllerFitbit;
+@property (nonatomic, strong) OAuthController *OAuthControllerGoodreads;
+
 @property (nonatomic, strong) NSString *oauthTokenFitBit;
 @property (nonatomic, strong) NSString *oauthTokenSecretFitBit;
+@property (nonatomic, strong) NSString *oauthTokenGoodreads;
+@property (nonatomic, strong) NSString *oauthTokenSecretGoodreads;
 @property (weak, nonatomic) IBOutlet UIButton *fitbitButton;
 @property (weak, nonatomic) IBOutlet UIButton *nikeButton;
 @property (weak, nonatomic) IBOutlet UIButton *goodreadsButton;

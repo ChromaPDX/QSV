@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BA86A8F937C46E18C9723AD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA06C2A634647778CAAB559 /* libPods.a */; };
 		3BB8C32E187CB61C00A0904F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB8C32D187CB61C00A0904F /* Foundation.framework */; };
 		3BB8C330187CB61C00A0904F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB8C32F187CB61C00A0904F /* CoreGraphics.framework */; };
 		3BB8C332187CB61C00A0904F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB8C331187CB61C00A0904F /* UIKit.framework */; };
@@ -25,7 +26,7 @@
 		3BDA4E4C187DC3BC00E0BF9F /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA4E43187DC3BC00E0BF9F /* hmac.c */; };
 		3BDA4E4D187DC3BC00E0BF9F /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA4E45187DC3BC00E0BF9F /* sha1.c */; };
 		3BDA4E4E187DC3BC00E0BF9F /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA4E48187DC3BC00E0BF9F /* NSString+URLEncoding.m */; };
-		3BDA4E4F187DC3BC00E0BF9F /* OAuth1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA4E4A187DC3BC00E0BF9F /* OAuth1Controller.m */; };
+		3BDA4E4F187DC3BC00E0BF9F /* OAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA4E4A187DC3BC00E0BF9F /* OAuthController.m */; };
 		3BDA4E52187DC67700E0BF9F /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BDA4E51187DC67700E0BF9F /* LoginWebViewController.m */; };
 		3BE00E2A18860C0A00586998 /* diagonals.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BE00E1818860C0A00586998 /* diagonals.png */; };
 		3BE00E2B18860C0A00586998 /* diagonals@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BE00E1918860C0A00586998 /* diagonals@2x.png */; };
@@ -33,6 +34,13 @@
 		3BE00E2F18860C0A00586998 /* nike.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3BE00E2018860C0A00586998 /* nike.sqlite */; };
 		3BE00E3018860C0A00586998 /* NikeConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE00E2218860C0A00586998 /* NikeConnect.m */; };
 		3BED55921886005600F938A3 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BED55911886005600F938A3 /* libsqlite3.0.dylib */; };
+		3BEDCCEC1892DC2A00648A0C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEDCCEB1892DC2A00648A0C /* CFNetwork.framework */; };
+		3BEDCCEE1892DC3700648A0C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEDCCED1892DC3700648A0C /* CoreData.framework */; };
+		3BEDCCF01892DC4700648A0C /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEDCCEF1892DC4700648A0C /* libxml2.dylib */; };
+		3BEDCCF21892DC5800648A0C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEDCCF11892DC5800648A0C /* MobileCoreServices.framework */; };
+		3BEDCCF41892DC6800648A0C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEDCCF31892DC6800648A0C /* QuartzCore.framework */; };
+		3BEDCCF61892DC7200648A0C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEDCCF51892DC7200648A0C /* Security.framework */; };
+		3BEDCCF81892DC8200648A0C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEDCCF71892DC8200648A0C /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +51,45 @@
 			remoteGlobalIDString = 3BB8C329187CB61C00A0904F;
 			remoteInfo = QSV;
 		};
+		3BEDCCDF1892D80000648A0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BEDCCD81892D80000648A0C /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		3BEDCCE11892D80000648A0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BEDCCD81892D80000648A0C /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		3BEDCCE31892D80000648A0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BEDCCD81892D80000648A0C /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		3BEDCCE51892D80000648A0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BEDCCD81892D80000648A0C /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		3BEDCCE71892DB6600648A0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BEDCCD81892D80000648A0C /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D2B563CA3004AB8B26F543D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		3BB8C32A187CB61C00A0904F /* QSV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BB8C32D187CB61C00A0904F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3BB8C32F187CB61C00A0904F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -73,8 +117,8 @@
 		3BDA4E46187DC3BC00E0BF9F /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
 		3BDA4E47187DC3BC00E0BF9F /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		3BDA4E48187DC3BC00E0BF9F /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
-		3BDA4E49187DC3BC00E0BF9F /* OAuth1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth1Controller.h; sourceTree = "<group>"; };
-		3BDA4E4A187DC3BC00E0BF9F /* OAuth1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuth1Controller.m; sourceTree = "<group>"; };
+		3BDA4E49187DC3BC00E0BF9F /* OAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthController.h; sourceTree = "<group>"; };
+		3BDA4E4A187DC3BC00E0BF9F /* OAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthController.m; sourceTree = "<group>"; };
 		3BDA4E50187DC67700E0BF9F /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewController.h; sourceTree = "<group>"; };
 		3BDA4E51187DC67700E0BF9F /* LoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewController.m; sourceTree = "<group>"; };
 		3BE00E1818860C0A00586998 /* diagonals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diagonals.png; sourceTree = "<group>"; };
@@ -86,6 +130,15 @@
 		3BE00E2218860C0A00586998 /* NikeConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NikeConnect.m; sourceTree = "<group>"; };
 		3BE00E2318860C0A00586998 /* NIKECredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIKECredential.h; sourceTree = "<group>"; };
 		3BED55911886005600F938A3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		3BEDCCD81892D80000648A0C /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = "../RestKit-0.20.3/RestKit.xcodeproj"; sourceTree = "<group>"; };
+		3BEDCCEB1892DC2A00648A0C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		3BEDCCED1892DC3700648A0C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3BEDCCEF1892DC4700648A0C /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		3BEDCCF11892DC5800648A0C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		3BEDCCF31892DC6800648A0C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3BEDCCF51892DC7200648A0C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3BEDCCF71892DC8200648A0C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3DA06C2A634647778CAAB559 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,11 +146,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BEDCCF81892DC8200648A0C /* SystemConfiguration.framework in Frameworks */,
+				3BEDCCF61892DC7200648A0C /* Security.framework in Frameworks */,
+				3BEDCCF41892DC6800648A0C /* QuartzCore.framework in Frameworks */,
+				3BEDCCF21892DC5800648A0C /* MobileCoreServices.framework in Frameworks */,
+				3BEDCCF01892DC4700648A0C /* libxml2.dylib in Frameworks */,
+				3BEDCCEE1892DC3700648A0C /* CoreData.framework in Frameworks */,
+				3BEDCCEC1892DC2A00648A0C /* CFNetwork.framework in Frameworks */,
 				3BE00E2D18860C0A00586998 /* libNike.1.1.a in Frameworks */,
 				3BED55921886005600F938A3 /* libsqlite3.0.dylib in Frameworks */,
 				3BB8C330187CB61C00A0904F /* CoreGraphics.framework in Frameworks */,
 				3BB8C332187CB61C00A0904F /* UIKit.framework in Frameworks */,
 				3BB8C32E187CB61C00A0904F /* Foundation.framework in Frameworks */,
+				2BA86A8F937C46E18C9723AD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,10 +178,12 @@
 		3BB8C321187CB61C00A0904F = {
 			isa = PBXGroup;
 			children = (
+				3BEDCCD81892D80000648A0C /* RestKit.xcodeproj */,
 				3BB8C333187CB61C00A0904F /* QSV */,
 				3BB8C352187CB61C00A0904F /* QSVTests */,
 				3BB8C32C187CB61C00A0904F /* Frameworks */,
 				3BB8C32B187CB61C00A0904F /* Products */,
+				2D2B563CA3004AB8B26F543D /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,11 +199,19 @@
 		3BB8C32C187CB61C00A0904F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BEDCCF71892DC8200648A0C /* SystemConfiguration.framework */,
+				3BEDCCF51892DC7200648A0C /* Security.framework */,
+				3BEDCCF31892DC6800648A0C /* QuartzCore.framework */,
+				3BEDCCF11892DC5800648A0C /* MobileCoreServices.framework */,
+				3BEDCCEF1892DC4700648A0C /* libxml2.dylib */,
+				3BEDCCED1892DC3700648A0C /* CoreData.framework */,
+				3BEDCCEB1892DC2A00648A0C /* CFNetwork.framework */,
 				3BED55911886005600F938A3 /* libsqlite3.0.dylib */,
 				3BB8C32D187CB61C00A0904F /* Foundation.framework */,
 				3BB8C32F187CB61C00A0904F /* CoreGraphics.framework */,
 				3BB8C331187CB61C00A0904F /* UIKit.framework */,
 				3BB8C34C187CB61C00A0904F /* XCTest.framework */,
+				3DA06C2A634647778CAAB559 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,14 +219,14 @@
 		3BB8C333187CB61C00A0904F /* QSV */ = {
 			isa = PBXGroup;
 			children = (
-				3BDA4E47187DC3BC00E0BF9F /* NSString+URLEncoding.h */,
-				3BDA4E48187DC3BC00E0BF9F /* NSString+URLEncoding.m */,
-				3BDA4E49187DC3BC00E0BF9F /* OAuth1Controller.h */,
-				3BDA4E4A187DC3BC00E0BF9F /* OAuth1Controller.m */,
-				3BB8C33C187CB61C00A0904F /* AppDelegate.h */,
-				3BB8C33D187CB61C00A0904F /* AppDelegate.m */,
 				3BB8C342187CB61C00A0904F /* ViewController.h */,
 				3BB8C343187CB61C00A0904F /* ViewController.m */,
+				3BDA4E49187DC3BC00E0BF9F /* OAuthController.h */,
+				3BDA4E4A187DC3BC00E0BF9F /* OAuthController.m */,
+				3BDA4E47187DC3BC00E0BF9F /* NSString+URLEncoding.h */,
+				3BDA4E48187DC3BC00E0BF9F /* NSString+URLEncoding.m */,
+				3BB8C33C187CB61C00A0904F /* AppDelegate.h */,
+				3BB8C33D187CB61C00A0904F /* AppDelegate.m */,
 				3BDA4E50187DC67700E0BF9F /* LoginWebViewController.h */,
 				3BDA4E51187DC67700E0BF9F /* LoginWebViewController.m */,
 				3BB8C33F187CB61C00A0904F /* Main.storyboard */,
@@ -224,6 +295,17 @@
 			path = NikeConnect;
 			sourceTree = "<group>";
 		};
+		3BEDCCD91892D80000648A0C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BEDCCE01892D80000648A0C /* libRestKit.a */,
+				3BEDCCE21892D80000648A0C /* RestKitTests.octest */,
+				3BEDCCE41892D80000648A0C /* RestKit.framework */,
+				3BEDCCE61892D80000648A0C /* RestKitFrameworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -231,13 +313,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BB8C35C187CB61C00A0904F /* Build configuration list for PBXNativeTarget "QSV" */;
 			buildPhases = (
+				8D7E2FB606274939B5E0EECC /* Check Pods Manifest.lock */,
 				3BB8C326187CB61C00A0904F /* Sources */,
 				3BB8C327187CB61C00A0904F /* Frameworks */,
 				3BB8C328187CB61C00A0904F /* Resources */,
+				C738B280EDC947B98790BF63 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3BEDCCE81892DB6600648A0C /* PBXTargetDependency */,
 			);
 			name = QSV;
 			productName = QSV;
@@ -287,6 +372,12 @@
 			mainGroup = 3BB8C321187CB61C00A0904F;
 			productRefGroup = 3BB8C32B187CB61C00A0904F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3BEDCCD91892D80000648A0C /* Products */;
+					ProjectRef = 3BEDCCD81892D80000648A0C /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3BB8C329187CB61C00A0904F /* QSV */,
@@ -294,6 +385,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3BEDCCE01892D80000648A0C /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = 3BEDCCDF1892D80000648A0C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3BEDCCE21892D80000648A0C /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = 3BEDCCE11892D80000648A0C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3BEDCCE41892D80000648A0C /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = 3BEDCCE31892D80000648A0C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3BEDCCE61892D80000648A0C /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = 3BEDCCE51892D80000648A0C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3BB8C328187CB61C00A0904F /* Resources */ = {
@@ -319,6 +441,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8D7E2FB606274939B5E0EECC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C738B280EDC947B98790BF63 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3BB8C326187CB61C00A0904F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -327,7 +482,7 @@
 				3BDA4E4D187DC3BC00E0BF9F /* sha1.c in Sources */,
 				3BDA4E4C187DC3BC00E0BF9F /* hmac.c in Sources */,
 				3BB8C344187CB61C00A0904F /* ViewController.m in Sources */,
-				3BDA4E4F187DC3BC00E0BF9F /* OAuth1Controller.m in Sources */,
+				3BDA4E4F187DC3BC00E0BF9F /* OAuthController.m in Sources */,
 				3BDA4E4B187DC3BC00E0BF9F /* Base64Transcoder.c in Sources */,
 				3BB8C33E187CB61C00A0904F /* AppDelegate.m in Sources */,
 				3BDA4E4E187DC3BC00E0BF9F /* NSString+URLEncoding.m in Sources */,
@@ -352,6 +507,11 @@
 			isa = PBXTargetDependency;
 			target = 3BB8C329187CB61C00A0904F /* QSV */;
 			targetProxy = 3BB8C350187CB61C00A0904F /* PBXContainerItemProxy */;
+		};
+		3BEDCCE81892DB6600648A0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 3BEDCCE71892DB6600648A0C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -416,6 +576,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"“$(BUILT_PRODUCTS_DIR)/../../Headers”",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -449,6 +614,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(BUILT_PRODUCTS_DIR)/../../Headers",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -457,6 +627,7 @@
 		};
 		3BB8C35D187CB61C00A0904F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D2B563CA3004AB8B26F543D /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -476,6 +647,7 @@
 		};
 		3BB8C35E187CB61C00A0904F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D2B563CA3004AB8B26F543D /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -488,6 +660,7 @@
 					/Users/erickuehne/apps/chroma/QSV,
 					/Users/erickuehne/apps/chroma/QSV/QSV/NikeConnect,
 				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
