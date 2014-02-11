@@ -1,6 +1,5 @@
 //
-//  OAuthConsumer.h
-//  OAuthConsumer
+//  NSString+URLEncoding.m
 //
 //  Created by Jon Crosby on 10/19/07.
 //  Copyright 2007 Kaboomerang LLC. All rights reserved.
@@ -23,18 +22,31 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import "OAProblem.h"
-#import "OAToken.h"
-#import "OAConsumer.h"
-#import "OAMutableURLRequest.h"
+
 #import "NSString+URLEncoding.h"
-//#import "NSMutableURLRequest+Parameters.h"
-//#import "NSURL+Base.h"
-#import "OASignatureProviding.h"
-#import "OAHMAC_SHA1SignatureProvider.h"
-#import "OAPlaintextSignatureProvider.h"
-#import "OARequestParameter.h"
-#import "OAServiceTicket.h"
-#import "OADataFetcher.h"
-#import "OATokenManager.h"
+
+
+@implementation NSString (OAURLEncodingAdditions)
+
+- (NSString *)URLEncodedString 
+{
+    NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                           (CFStringRef)self,
+                                                                           NULL,
+																		   CFSTR("!*'();:@&=+$,/?%#[]"),
+                                                                           kCFStringEncodingUTF8);
+    [result autorelease];
+	return result;
+}
+
+- (NSString*)URLDecodedString
+{
+	NSString *result = (NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
+																						   (CFStringRef)self,
+																						   CFSTR(""),
+																						   kCFStringEncodingUTF8);
+    [result autorelease];
+	return result;	
+}
+
+@end

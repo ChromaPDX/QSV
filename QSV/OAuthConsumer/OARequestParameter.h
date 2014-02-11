@@ -1,9 +1,9 @@
 //
-//  hmac.h
+//  OARequestParameter.h
 //  OAuthConsumer
 //
-//  Created by Jonathan Wight on 4/8/8.
-//  Copyright 2008 Jonathan Wight. All rights reserved.
+//  Created by Jon Crosby on 10/19/07.
+//  Copyright 2007 Kaboomerang LLC. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +23,23 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#ifndef HMAC_H
-#define HMAC_H 1
 
-extern void hmac_sha1(const u_int8_t *inText, size_t inTextLength, u_int8_t* inKey, const size_t inKeyLength, u_int8_t *outDigest);
+#import <Foundation/Foundation.h>
+#import "NSString+URLEncoding.h"
 
-#endif /* HMAC_H */
+
+@interface OARequestParameter : NSObject {
+@protected
+    NSString *name;
+    NSString *value;
+}
+@property(retain) NSString *name;
+@property(retain) NSString *value;
+
++ (id)requestParameterWithName:(NSString *)aName value:(NSString *)aValue;
+- (id)initWithName:(NSString *)aName value:(NSString *)aValue;
+- (NSString *)URLEncodedName;
+- (NSString *)URLEncodedValue;
+- (NSString *)URLEncodedNameValuePair;
+
+@end

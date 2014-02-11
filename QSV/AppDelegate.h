@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Nike.h"
+#import "FitbitHandler.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) FitbitHandler *fitbitHandler;
 
 @end

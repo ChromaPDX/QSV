@@ -7,14 +7,26 @@
 //
 
 #import "ViewController.h"
-#import <MessageUI/MessageUI.h>
-#import <RestKit/RestKit.h>
+
 
 @implementation ViewController
 
 - (void)viewDidLoad
 {
+    NSLog(@"in viewController.viewDidLoad");
     [super viewDidLoad];
+    
+    _fitbitHandler = [[FitbitHandler alloc] init];
+    
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    delegate.fitbitHandler = _fitbitHandler;
+   // _goodreadsConsumer = [[OAConsumer alloc] initWithKey:@"tHgXtxxBGG3tlTUrRyHnTg" secret:@"iP9VZSSOwMobu8BTXhuYoHX9NkFBvZkV6duiGsaQ"];
+    
+    //_loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
+ //   _loginWebViewController = [[LoginWebViewController alloc] init];
+  //  _loginWebViewController.webView.delegate = _loginWebViewController;
+    
+    _webView.delegate = self;
     
     [_exportButton setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
     [_refreshButton setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
@@ -69,7 +81,7 @@
         [_nikeButton setTitle:@"connect"forState:UIControlStateNormal];
         [_nikeButton setBackgroundColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]];
     }
-    if(_oauthTokenFitBit){
+    if([_fitbitHandler isConnected]){
         [_fitbitButton setTitle:@"connected"forState:UIControlStateNormal];
         [_fitbitButton setBackgroundColor:[UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:1.0]];
     }
@@ -93,6 +105,11 @@
 
 - (IBAction)loginFitbit
 {
+    
+    [_fitbitHandler login:_webView];
+    
+    
+    /*
     LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
     
     NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -154,73 +171,46 @@
         // set button to "connect"
         [_fitbitButton setTitle:@"connect" forState:UIControlStateNormal];
     }
+     */
 }
 
 
-// URL: https://www.goodreads.com/oauth/authorize?oauth_token=ZXugPyZVA3t0sbVZjuo8LA&oauth_callback=http%3A%2F%2Fwww.goodreads.com
-// URL: https://www.goodreads.com/oauth/authorize?oauth_token=tCsixclbgBXZbiCe2Wyotw&oauth_callback=http%3A%2F%2Fwww.chroma.io&display=touch
-
 - (IBAction)loginGoodreads
 {
-    LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
     
-    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            @"tHgXtxxBGG3tlTUrRyHnTg", @"CONSUMER_KEY",
-                            @"iP9VZSSOwMobu8BTXhuYoHX9NkFBvZkV6duiGsaQ",@"CONSUMER_SECRET",
-                            @"http://www.goodreads.com/",@"API_URL",
-                            @"https://www.goodreads.com/oauth/",@"AUTH_URL",
-                            @"https://www.goodreads.com/", @"REDIRECT_URL",
-                            @"request_token",@"REQUEST_TOKEN_URL",
-                            @"authorize",@"AUTHENTICATE_URL",
-                            @"access_token",@"ACCESS_TOKEN_URL",
-                            @"",@"OAUTH_SCOPE_PARAM",
-                            @"POST",@"ACCESS_TOKEN_METHOD",
-                            @"POST",@"REQUEST_TOKEN_METHOD",
-                            @"http://www.goodreads.com",@"OAUTH_CALLBACK",
-                            nil];
+   /*
+    NSURL *url = [NSURL URLWithString:@"http://www.goodreads.com/oauth/request_token"];
     
-    if(_oauthTokenGoodreads == nil){   // If not logged in, then do it
-        _OAuthControllerGoodreads = [[OAuthController alloc] init];
-        // NSLog(@"_OAuthController = %@", _OAuthController);
-        // NSLog(@"_params[AUTH_URL] = %@", params[@"AUTH_URL"]);
-        [OAuthController setOAuthParams:params];
-        
-        [self presentViewController:loginWebViewController
-                           animated:YES
-                         completion:^{
-                             [_OAuthControllerGoodreads loginWithWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error) {
-                                 if (!error) {
-                                     NSLog(@"Connected to Goodreads!");
-                                     
-                                     _oauthTokenGoodreads = oauthTokens[@"oauth_token"];
-                                     _oauthTokenSecretGoodreads = oauthTokens[@"oauth_token_secret"];
-                                     [self updateButtons];
-                                 }
-                                 else
-                                 {
-                                     NSLog(@"Error authenticating Goodreads: %@", error.localizedDescription);
-                                 }
-                                 [self dismissViewControllerAnimated:YES completion: ^{
-                                     _OAuthControllerGoodreads = nil;
-                                 }];
-                             }];
-                         }];
-        
-    }
-    else{  //  allready logged in, so log out
-        // Clear cookies so no session cookies can be used for the UIWebview
-        NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-        for (NSHTTPCookie *cookie in [storage cookies]) {
-            if (cookie.isSecure) {
-                [storage deleteCookie:cookie];
-            }
-        }
-        
-        // Clear tokens from instance variables
-        _oauthTokenFitBit = nil;
-        _oauthTokenSecretFitBit = nil;
-    }
-
+    OAMutableURLRequest *request = [[OAMutableURLRequest alloc] initWithURL:url
+                                                                   consumer:_goodreadsConsumer
+                                                                      token:nil   // we don't have a Token yet
+                                                                      realm:nil   // our service provider doesn't specify a realm
+                                                          signatureProvider:nil]; // use the default method, HMAC-SHA1
+    
+    [request setHTTPMethod:@"GET"];
+    
+    OADataFetcher *fetcher = [[OADataFetcher alloc] init];
+    
+    [fetcher fetchDataWithRequest:request
+                         delegate:self
+                didFinishSelector:@selector(requestTokenTicket:didFinishWithData:)
+                  didFailSelector:@selector(requestTokenTicket:didFailWithError:)];
+    
+    NSLog(@"in loginGoodReads, request token successful");
+    NSString *strUrl = [NSString stringWithFormat: @"http://www.goodreads.com/oauth/authorize?mobile=1?oauth_token=%@?key=tHgXtxxBGG3tlTUrRyHnTg",_goodreadsRequestToken.key];
+   // NSString *strUrl = [NSString stringWithFormat: @"http://www.goodreads.com/oauth/authorize?mobile=1"];
+    url = [NSURL URLWithString:strUrl];
+    //  NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    //[request setHTTPShouldHandleCookies:NO];
+    request = [NSURLRequest requestWithURL:url];
+    
+    
+    //  [loginWebViewController.webView setScalesPageToFit:YES];
+    NSLog(@"loading url: %@", url);
+    [_webView loadRequest:request];
+    
+    */
 }
 
 - (IBAction)loginNike
@@ -242,6 +232,14 @@
     [self updateButtons];
 }
 
+
+- (IBAction)loginWithings
+{
+   
+
+}
+
+
 // Withings API: 82beb676e575bb70b43391fecc9cc63d386fb1bbccb81c214fbf2d01e2d7
 // WIthings Secret API: c02843e53063ed453e58f901e65581f6670fb706038e1d8e2639f34c9c6
 
@@ -259,6 +257,7 @@
 
 -(void) refreshFitBit
 {
+ /*
     // init all paths to GET
     NSArray *fetchPaths = [NSArray arrayWithObjects:
                      //    @"1/user/-/profile.json",
@@ -324,6 +323,7 @@
                                     }];
         
         }
+  */
 }
 
 
@@ -527,15 +527,22 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-/*
- - (OAuthController *)OAuthController
-{
-    if (_OAuthController == nil) {
-        _OAuthController = [[OAuthController alloc] init];
-    }
-    return _OAuthController;
+- (void)accessTokenTicket{
+    NSLog(@"in accessTokenTicket");
 }
- */
+
+#pragma mark webView methods
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    _webView.hidden = FALSE;
+    NSURL* url = [webView.request URL];
+    //NSLog(@"page is loading: %@", url);
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    //NSLog(@"Finshed loading");
+}
+
 
 
 @end

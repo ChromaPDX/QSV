@@ -1,8 +1,8 @@
 //
-//  OAuthConsumer.h
+//  OAServiceTicket.m
 //  OAuthConsumer
 //
-//  Created by Jon Crosby on 10/19/07.
+//  Created by Jon Crosby on 11/5/07.
 //  Copyright 2007 Kaboomerang LLC. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,18 +23,29 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import "OAProblem.h"
-#import "OAToken.h"
-#import "OAConsumer.h"
-#import "OAMutableURLRequest.h"
-#import "NSString+URLEncoding.h"
-//#import "NSMutableURLRequest+Parameters.h"
-//#import "NSURL+Base.h"
-#import "OASignatureProviding.h"
-#import "OAHMAC_SHA1SignatureProvider.h"
-#import "OAPlaintextSignatureProvider.h"
-#import "OARequestParameter.h"
+
 #import "OAServiceTicket.h"
-#import "OADataFetcher.h"
-#import "OATokenManager.h"
+
+
+@implementation OAServiceTicket
+@synthesize request, response, didSucceed;
+
+- (id)initWithRequest:(OAMutableURLRequest *)aRequest response:(NSURLResponse *)aResponse didSucceed:(BOOL)success 
+{
+    if (self = [super init])
+	{
+		self.request = aRequest;
+		self.response = aResponse;
+		self.didSucceed = success;
+	}
+    return self;
+}
+
+- (void)dealloc
+{
+	[request release];
+	[response release];
+	[super dealloc];
+}
+
+@end

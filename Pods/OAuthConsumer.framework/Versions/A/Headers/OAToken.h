@@ -1,5 +1,5 @@
 //
-//  OAuthConsumer.h
+//  OAToken.h
 //  OAuthConsumer
 //
 //  Created by Jon Crosby on 10/19/07.
@@ -24,17 +24,18 @@
 //  THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "OAProblem.h"
-#import "OAToken.h"
-#import "OAConsumer.h"
-#import "OAMutableURLRequest.h"
-#import "NSString+URLEncoding.h"
-//#import "NSMutableURLRequest+Parameters.h"
-//#import "NSURL+Base.h"
-#import "OASignatureProviding.h"
-#import "OAHMAC_SHA1SignatureProvider.h"
-#import "OAPlaintextSignatureProvider.h"
-#import "OARequestParameter.h"
-#import "OAServiceTicket.h"
-#import "OADataFetcher.h"
-#import "OATokenManager.h"
+
+@interface OAToken : NSObject {
+@protected
+	NSString *key;
+	NSString *secret;
+}
+@property(retain) NSString *key;
+@property(retain) NSString *secret;
+
+- (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret;
+- (id)initWithUserDefaultsUsingServiceProviderName:(NSString *)provider prefix:(NSString *)prefix;
+- (id)initWithHTTPResponseBody:(NSString *)body;
+- (int)storeInUserDefaultsWithServiceProviderName:(NSString *)provider prefix:(NSString *)prefix;
+
+@end

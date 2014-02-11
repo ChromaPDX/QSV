@@ -1,5 +1,5 @@
 //
-//  OAuthConsumer.h
+//  OARequestParameter.m
 //  OAuthConsumer
 //
 //  Created by Jon Crosby on 10/19/07.
@@ -23,18 +23,48 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-#import "OAProblem.h"
-#import "OAToken.h"
-#import "OAConsumer.h"
-#import "OAMutableURLRequest.h"
-#import "NSString+URLEncoding.h"
-//#import "NSMutableURLRequest+Parameters.h"
-//#import "NSURL+Base.h"
-#import "OASignatureProviding.h"
-#import "OAHMAC_SHA1SignatureProvider.h"
-#import "OAPlaintextSignatureProvider.h"
+
 #import "OARequestParameter.h"
-#import "OAServiceTicket.h"
-#import "OADataFetcher.h"
-#import "OATokenManager.h"
+
+
+@implementation OARequestParameter
+@synthesize name, value;
+
++ (id)requestParameterWithName:(NSString *)aName value:(NSString *)aValue 
+{
+	return [[[OARequestParameter alloc] initWithName:aName value:aValue] autorelease];
+}
+
+- (id)initWithName:(NSString *)aName value:(NSString *)aValue 
+{
+    if (self = [super init])
+	{
+		self.name = aName;
+		self.value = aValue;
+	}
+    return self;
+}
+
+- (void)dealloc
+{
+	[name release];
+	[value release];
+	[super dealloc];
+}
+
+- (NSString *)URLEncodedName 
+{
+	return [self.name URLEncodedString];
+}
+
+- (NSString *)URLEncodedValue 
+{
+    return [self.value URLEncodedString];
+}
+
+- (NSString *)URLEncodedNameValuePair 
+{
+    return [NSString stringWithFormat:@"%@=%@", [self URLEncodedName], [self URLEncodedValue]];
+}
+
+@end

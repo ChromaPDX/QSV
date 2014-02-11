@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @implementation AppDelegate
 
@@ -18,9 +19,25 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
+    NSLog(@"in handleOpenURL: %@", url);
+    ViewController* mainController = (ViewController*)  self.window.rootViewController;
     if ([Nike handleOpenURL:url])
         return YES;
     
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@", [url absoluteURL]];
+    NSArray *components = [urlString componentsSeparatedByString:@"oauth_verifier="];
+    
+    NSString *oAuthVerifier = [components lastObject];
+    
+    
+    if(_fitbitHandler){
+        [_fitbitHandler fetchAuthorizedOpenAuthTokenWithVerifier:oAuthVerifier];
+    }
+    
+    
+    
+    mainController.webView.hidden = TRUE;
     //any other handlers go here
     return NO;
 }

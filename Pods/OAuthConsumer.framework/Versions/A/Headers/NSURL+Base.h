@@ -1,5 +1,5 @@
 //
-//  OAuthConsumer.h
+//  NSURL+Base.h
 //  OAuthConsumer
 //
 //  Created by Jon Crosby on 10/19/07.
@@ -23,18 +23,12 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+
 #import <Foundation/Foundation.h>
-#import "OAProblem.h"
-#import "OAToken.h"
-#import "OAConsumer.h"
-#import "OAMutableURLRequest.h"
-#import "NSString+URLEncoding.h"
-//#import "NSMutableURLRequest+Parameters.h"
-//#import "NSURL+Base.h"
-#import "OASignatureProviding.h"
-#import "OAHMAC_SHA1SignatureProvider.h"
-#import "OAPlaintextSignatureProvider.h"
-#import "OARequestParameter.h"
-#import "OAServiceTicket.h"
-#import "OADataFetcher.h"
-#import "OATokenManager.h"
+
+
+@interface NSURL (OABaseAdditions)
+
+- (NSString *)URLStringWithoutQuery;
+
+@end

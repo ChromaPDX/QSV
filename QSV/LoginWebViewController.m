@@ -16,8 +16,11 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    NSLog(@"LoginWebViewController initWithNibName...");
+
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.webView.delegate = self;
         // Custom initialization
     }
     return self;
@@ -36,10 +39,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)loadRequest{
+    NSLog(@"inside loadRequest");
+    [super loadView];
+}
 
 - (IBAction)cancelTapped:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{ // starting the load, show the activity indicator in the status bar
+    NSLog(@"in webViewDidStartLoad");
+}
+    
 @end

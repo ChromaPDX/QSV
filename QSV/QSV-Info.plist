@@ -50,6 +50,8 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleURLName</key>
+			<string>chroma.${PRODUCT_NAME:rfc1034identifier}</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>jumpbots</string>
